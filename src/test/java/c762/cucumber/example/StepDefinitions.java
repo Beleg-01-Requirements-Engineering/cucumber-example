@@ -8,21 +8,22 @@ import io.cucumber.java.en.When;
 
 public class StepDefinitions {
 
-    private Professor professor;
     private Course course;
 
-    @Given("a professor with name {string} and email {string}")
-    public void a_professor_with_name_and_email(String name, String email) {
-        professor = new Professor(name, email);
+    @Given("a course with name {string}")
+    public void a_course_with_name(String courseName) {
+        course = new Course(courseName);
     }
 
-    @When("the professor creates a course with name {string}")
-    public void the_professor_creates_an_account_with_name(String name) {
-        course = new Course(name);
+    @When("the professor modifies the name of the course to {string}")
+    public void the_professor_modifies_the_name_of_the_course_to(
+        String newName
+    ) {
+        course.setName(newName);
     }
 
-    @Then("a course exists with name {string}")
-    public void a_course_exists_with_name(String name) {
+    @Then("the name of the course is {string}")
+    public void the_name_of_the_course_is(String name) {
         assertEquals(name, course.getName());
     }
 }
