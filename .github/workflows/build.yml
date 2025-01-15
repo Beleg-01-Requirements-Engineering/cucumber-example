@@ -15,4 +15,4 @@ jobs:
       - name: Build Docker image
         run: docker build -t cucumber-example .
       - name: Run Docker image
-        run: docker run -it --rm cucumber-example
+        run: docker run --rm cucumber-example
